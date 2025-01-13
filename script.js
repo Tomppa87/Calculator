@@ -21,6 +21,9 @@ for (i=0; i<10; i++) {
     numBtn.appendChild(numTxt);
     numBtn.classList.add("numBtn")
     numBtn.id ="numBtn"+i
-    console.log(numBtn);
+    //console.log(numBtn);
     numContainer.appendChild(numBtn);
 }
+
+//document.querySelectorAll("button").style.fontSize = "x-large"
+

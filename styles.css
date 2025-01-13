@@ -1,3 +1,10 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
     display: flex;
 }
@@ -9,14 +16,19 @@
     justify-content: center;
     width: 60%;
 }
-# operatorContainer {
-    display: flex;    
+#operatorContainer {
+    display: flex;  
+    flex-wrap: wrap;  
     width: 40%;
 }
 
 .numBtn {
     width: 33%;
+    aspect-ratio: 2/1;
 }
 #numBtn0 {
     order: 10;
+}
+.operatorBtn {
+    width: 50%;
 }
