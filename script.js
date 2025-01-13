@@ -25,8 +25,22 @@ for (i=0; i<10; i++) {
     numContainer.appendChild(numBtn);
 }
 
-let buttons = document.querySelectorAll("button")
-//buttons.children.style.fontSize = "large"
+
+let numButtons = document.querySelectorAll(".numBtn")
+numButtons.forEach((button) => {
+    // and for each one we add a 'click' listener
+    button.addEventListener("click", () => {
+      console.log(button.innerHTML);
+    });
+  });
+
+let opButtons = document.querySelectorAll(".operatorBtn")
+opButtons.forEach((button) => {
+    // and for each one we add a 'click' listener
+    button.addEventListener("click", () => {
+      console.log(button.innerHTML);
+    });
+  });
 
 let firstOperation
 let secondOperation
