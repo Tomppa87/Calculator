@@ -25,5 +25,23 @@ for (i=0; i<10; i++) {
     numContainer.appendChild(numBtn);
 }
 
-//document.querySelectorAll("button").style.fontSize = "x-large"
+let buttons = document.querySelectorAll("button")
+//buttons.children.style.fontSize = "large"
 
+let firstOperation
+let secondOperation
+let thirdOperation
+
+function operate(operator,firstNum, secondNum) {
+    if (operator === "+"){
+        return sum(firstNum,secondNum)        
+    }   else if (operator === "-") {
+        return subtract(firstNum,secondNum)
+    }   else if (operator === "*") {
+        return multiply(firstNum,secondNum)
+    }   else if (operator === "/") {
+        return divide(firstNum,secondNum)
+    }   else {
+        return "ERROR"
+    }    
+}
