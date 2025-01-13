@@ -19,6 +19,8 @@ for (i=0; i<10; i++) {
     const numBtn = document.createElement("button")
     const numTxt = document.createTextNode(i+"")
     numBtn.appendChild(numTxt);
+    numBtn.classList.add("numBtn")
+    numBtn.id ="numBtn"+i
     console.log(numBtn);
     numContainer.appendChild(numBtn);
 }

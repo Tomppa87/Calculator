@@ -4,5 +4,19 @@
 
 #numberContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 60%;
+}
+# operatorContainer {
+    display: flex;    
+    width: 40%;
+}
+
+.numBtn {
+    width: 33%;
+}
+#numBtn0 {
+    order: 10;
 }
