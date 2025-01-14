@@ -14,6 +14,7 @@ let divide = function(num1, num2) {
 const container = document.getElementsByClassName("container")
 const numContainer = document.getElementById("numberContainer")
 const opContainer = document.getElementsByClassName("operatorContainer")
+const displayBtn = document.getElementById("display")
 
 for (i=0; i<10; i++) {
     const numBtn = document.createElement("button")
@@ -30,7 +31,18 @@ let numButtons = document.querySelectorAll(".numBtn")
 numButtons.forEach((button) => {
     // and for each one we add a 'click' listener
     button.addEventListener("click", () => {
-      console.log(button.innerHTML);
+        if (secondOperation.length === 0) {
+            firstOperation.push(button.innerHTML)
+            displayBtn.innerText = firstOperation.join("")
+            
+            
+        }
+        else {
+            thirdOperation.push(button.innerHTML)
+            displayBtn.innerText = displayBtn.innerText.concat(thirdOperation.join(""))
+        }
+        
+      //console.log(button.innerHTML);
     });
   });
 
@@ -38,13 +50,28 @@ let opButtons = document.querySelectorAll(".operatorBtn")
 opButtons.forEach((button) => {
     // and for each one we add a 'click' listener
     button.addEventListener("click", () => {
+        secondOperation.splice(0,1,button.innerHTML)
+        displayBtn.innerText = displayBtn.innerText.concat(secondOperation.join(""))
+        
       console.log(button.innerHTML);
     });
   });
 
-let firstOperation
-let secondOperation
-let thirdOperation
+  let equalBtn = document.getElementById("equalsBtn")
+  equalBtn.addEventListener("click", () => {
+    let initial = parseInt(firstOperation.join(""))
+    let op = secondOperation.join("")
+    let secondary = parseInt(thirdOperation.join(""));
+    let result = operate(op,initial,secondary)
+    displayBtn.innerText = result
+    
+  })
+
+let firstOperation = [];
+let secondOperation = [];
+let thirdOperation = [];
+
+//displayBtn.innerText = (parseInt(firstOperation.join(""))+(parseInt(secondOperation.join("")))+(parseInt(thirdOperation.join(""))))
 
 function operate(operator,firstNum, secondNum) {
     if (operator === "+"){
