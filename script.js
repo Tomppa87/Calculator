@@ -25,24 +25,20 @@ for (i=0; i<10; i++) {
     //console.log(numBtn);
     numContainer.appendChild(numBtn);
 }
-
+let equalsCount = 0;
 
 let numButtons = document.querySelectorAll(".numBtn")
 numButtons.forEach((button) => {
     // and for each one we add a 'click' listener
-    button.addEventListener("click", () => {
-        if (secondOperation.length === 0) {
+    button.addEventListener("click", (e) => {
+        if (secondOperation.length === 0 && equalsCount === 0) {
             firstOperation.push(button.innerHTML)
-            displayBtn.innerText = firstOperation.join("")
-            
-            
+            displayBtn.innerText = firstOperation.join("")            
         }
         else {
             thirdOperation.push(button.innerHTML)
-            displayBtn.innerText = displayBtn.innerText.concat(thirdOperation.join(""))
-        }
-        
-      //console.log(button.innerHTML);
+            displayBtn.innerText = displayBtn.innerText.concat(e.target.innerText)
+        }         
     });
   });
 
@@ -64,6 +60,10 @@ opButtons.forEach((button) => {
     let secondary = parseInt(thirdOperation.join(""));
     let result = operate(op,initial,secondary)
     displayBtn.innerText = result
+    equalsCount += 1;
+    firstOperation = [result]
+    thirdOperation = [];
+    
     
   })
 
@@ -81,7 +81,11 @@ function operate(operator,firstNum, secondNum) {
     }   else if (operator === "*") {
         return multiply(firstNum,secondNum)
     }   else if (operator === "/") {
-        return divide(firstNum,secondNum)
+        if (secondNum === 0) {
+            return "ERROR"
+        } else {
+            return divide(firstNum,secondNum)
+        }        
     }   else {
         return "ERROR"
     }    

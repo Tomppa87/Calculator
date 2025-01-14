@@ -1,12 +1,19 @@
 .header {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    
+    justify-content: space-evenly;
     align-items: center;
+    background-color: blanchedalmond;
 }
 
 .container {
     display: flex;
+}
+
+#display {
+    width: 200px;
+    height: 100px;
+    font-size: x-large;
 }
 
 #numberContainer {
@@ -26,10 +33,14 @@
 .numBtn {
     width: 33%;
     aspect-ratio: 2/1;
+    font-size: x-large;
 }
 #numBtn0 {
     order: 10;
 }
-.operatorBtn {
+.operatorBtn,
+.equalsBtn {
     width: 50%;
+    font-size: x-large;
 }
+
