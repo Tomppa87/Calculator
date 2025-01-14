@@ -45,10 +45,22 @@ let opButtons = document.querySelectorAll(".operatorBtn")
 opButtons.forEach((button) => {
     // and for each one we add a 'click' listener
     button.addEventListener("click", () => {
-        secondOperation.splice(0,1,button.innerHTML)
-        displayBtn.innerText = displayBtn.innerText.concat(secondOperation.join(""))
-        
-      console.log(button.innerHTML);
+        if (thirdOperation.length >0) {
+            let initial = parseInt(firstOperation.join(""))
+            let op = secondOperation.join("")
+            let secondary = parseInt(thirdOperation.join(""));
+            let result = operate(op,initial,secondary)
+            displayBtn.innerText = result
+            equalsCount += 1;
+            firstOperation = [result]
+            secondOperation.splice(0,1,button.innerHTML)
+            displayBtn.innerText = displayBtn.innerText.concat(secondOperation.join(""))
+            thirdOperation = [];    
+        } else {
+            secondOperation.splice(0,1,button.innerHTML)
+            displayBtn.innerText = displayBtn.innerText.concat(secondOperation.join(""))            
+          //console.log(button.innerHTML);
+        }        
     });
   });
 
