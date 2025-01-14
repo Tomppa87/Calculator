@@ -22,7 +22,6 @@ for (i=0; i<10; i++) {
     numBtn.appendChild(numTxt);
     numBtn.classList.add("numBtn")
     numBtn.id ="numBtn"+i
-    //console.log(numBtn);
     numContainer.appendChild(numBtn);
 }
 let equalsCount = 0;
@@ -62,16 +61,21 @@ opButtons.forEach((button) => {
     displayBtn.innerText = result
     equalsCount += 1;
     firstOperation = [result]
+    thirdOperation = [];    
+  })
+
+  let clearBtn = document.getElementById("clearBtn")
+  clearBtn.addEventListener("click", () => {
+    equalsCount = 0;
+    firstOperation = [];
+    secondOperation = [];
     thirdOperation = [];
-    
-    
+    displayBtn.innerText = ""
   })
 
 let firstOperation = [];
 let secondOperation = [];
 let thirdOperation = [];
-
-//displayBtn.innerText = (parseInt(firstOperation.join(""))+(parseInt(secondOperation.join("")))+(parseInt(thirdOperation.join(""))))
 
 function operate(operator,firstNum, secondNum) {
     if (operator === "+"){
