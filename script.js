@@ -67,14 +67,19 @@ opButtons.forEach((button) => {
 
   let equalBtn = document.getElementById("equalsBtn")
   equalBtn.addEventListener("click", () => {
-    let initial = parseFloat(firstOperation.join(""))
-    let op = secondOperation.join("")
-    let secondary = parseFloat(thirdOperation.join(""));
-    let result = operate(op,initial,secondary).toFixed(3)
-    displayBtn.innerText = result
-    equalsCount += 1;
-    firstOperation = [result]
-    thirdOperation = [];    
+    if ((firstOperation.length === 0) || (secondOperation.length === 0) || (thirdOperation.length === 0)) {
+        return "Error";
+    } else {
+        let initial = parseFloat(firstOperation.join(""))
+        let op = secondOperation.join("")
+        let secondary = parseFloat(thirdOperation.join(""));
+        let result = operate(op,initial,secondary).toFixed(3)
+        displayBtn.innerText = result
+        equalsCount += 1;
+        firstOperation = [result]
+        thirdOperation = []; 
+    }
+       
   })
 
   let clearBtn = document.getElementById("clearBtn")
