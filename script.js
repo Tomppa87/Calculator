@@ -46,14 +46,15 @@ opButtons.forEach((button) => {
     // and for each one we add a 'click' listener
     button.addEventListener("click", () => {
         if (thirdOperation.length >0) {
-            let initial = parseInt(firstOperation.join(""))
+            let initial = parseFloat(firstOperation.join(""))
             let op = secondOperation.join("")
-            let secondary = parseInt(thirdOperation.join(""));
+            let secondary = parseFloat(thirdOperation.join(""));
             let result = operate(op,initial,secondary)
             displayBtn.innerText = result
             equalsCount += 1;
             firstOperation = [result]
             secondOperation.splice(0,1,button.innerHTML)
+            // bug here where you if multiple operators pressed they all are displayed
             displayBtn.innerText = displayBtn.innerText.concat(secondOperation.join(""))
             thirdOperation = [];    
         } else {
@@ -66,10 +67,10 @@ opButtons.forEach((button) => {
 
   let equalBtn = document.getElementById("equalsBtn")
   equalBtn.addEventListener("click", () => {
-    let initial = parseInt(firstOperation.join(""))
+    let initial = parseFloat(firstOperation.join(""))
     let op = secondOperation.join("")
-    let secondary = parseInt(thirdOperation.join(""));
-    let result = operate(op,initial,secondary)
+    let secondary = parseFloat(thirdOperation.join(""));
+    let result = operate(op,initial,secondary).toFixed(3)
     displayBtn.innerText = result
     equalsCount += 1;
     firstOperation = [result]
