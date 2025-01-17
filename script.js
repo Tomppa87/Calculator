@@ -29,14 +29,22 @@ let equalsCount = 0;
 let numButtons = document.querySelectorAll(".numBtn")
 numButtons.forEach((button) => {
     // and for each one we add a 'click' listener
-    button.addEventListener("click", (e) => {
+    button.addEventListener("click", (e) => {      
+        
         if (secondOperation.length === 0 && equalsCount === 0) {
-            firstOperation.push(button.innerHTML)
-            displayBtn.innerText = firstOperation.join("")            
-        }
-        else {
-            thirdOperation.push(button.innerHTML)
-            displayBtn.innerText = displayBtn.innerText.concat(e.target.innerText)
+            if ((e.target.innerText === ".") && firstOperation.includes(".")) {
+                firstOperation.push("")
+            }   else {
+                firstOperation.push(button.innerHTML)
+                displayBtn.innerText = firstOperation.join("") 
+            }                       
+        }   else {
+            if ((e.target.innerText === ".") && thirdOperation.includes(".")) {
+                thirdOperation.push("")
+            }   else {
+                thirdOperation.push(button.innerHTML)
+                displayBtn.innerText = displayBtn.innerText.concat(e.target.innerText)
+            }            
         }         
     });
   });
