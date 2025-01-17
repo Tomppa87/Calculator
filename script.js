@@ -73,7 +73,13 @@ opButtons.forEach((button) => {
         let initial = parseFloat(firstOperation.join(""))
         let op = secondOperation.join("")
         let secondary = parseFloat(thirdOperation.join(""));
-        let result = operate(op,initial,secondary).toFixed(3)
+        let result = operate(op,initial,secondary)//.toFixed(3)
+        if (result === Math.floor(result)) {
+            result = result.toFixed(0)
+        }
+        else {
+            result = result.toFixed(3)
+        }
         displayBtn.innerText = result
         equalsCount += 1;
         firstOperation = [result]
